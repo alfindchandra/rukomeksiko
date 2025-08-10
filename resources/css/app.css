@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+
+.nav-link {
+    @apply text-white/80 hover:text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative overflow-hidden;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-link.active {
+    @apply text-white bg-white/10 backdrop-blur-sm border border-white/20;
+}
+
+.dropdown-link {
+    @apply block px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 border-l-2 border-transparent hover:border-purple-400;
+}
+
+.mobile-nav-link {
+    @apply block text-white/80 hover:text-white px-3 py-3 rounded-lg text-base font-medium transition-all duration-300 border-l-2 border-transparent hover:border-purple-400 hover:bg-white/10;
+}
+
+.mobile-nav-link.active {
+    @apply text-white bg-white/10 border-purple-400;
+}
+
+.mobile-dropdown-button {
+    @apply w-full text-left text-white/80 hover:text-white px-3 py-3 rounded-lg text-base font-medium transition-all duration-300 border-l-2 border-transparent hover:border-purple-400 hover:bg-white/10 flex items-center;
+}
+
+.mobile-dropdown-content {
+    @apply hidden pl-6 mt-2 space-y-1;
+}
+
+.mobile-dropdown.active .mobile-dropdown-content {
+    @apply block;
+}
+
+.mobile-dropdown.active .dropdown-arrow {
+    @apply transform rotate-180;
+}
+
+.mobile-dropdown-link {
+    @apply block text-white/70 hover:text-white px-3 py-2 rounded-lg text-sm transition-all duration-200 border-l-2 border-transparent hover:border-purple-400 hover:bg-white/5;
+}
