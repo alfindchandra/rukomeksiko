@@ -10,4 +10,17 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
+    
+    public function login()
+    {
+        return view('login');
+    }
+    public function postLogin()
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        
+    }
 }
